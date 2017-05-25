@@ -46,10 +46,6 @@ public class GoogleSearch {
 		System.err.println("browserName=chrome");
 		System.err.println("platform=XP");
 		System.err.println("version=43.0");
-		
-		System.out.println(Platform.XP.toString());
-		System.out.println(Platform.XP.name());
-		System.out.println(Platform.fromString("XP"));
 	}
 
 	@BeforeMethod
@@ -142,9 +138,15 @@ public class GoogleSearch {
 				HttpClient client = new HttpClient() {
 					@Override
 					public HttpResponse execute(HttpRequest request, boolean followRedirects) throws IOException {
-						request.addHeader("Authorization",
-								"Intuit_APIKey intuit_apikey=prdakyres6bwKNVPvkaPZGd2sx35QE7r09k6071W");
+						request.addHeader("Authorization", authHeader);
 						return actualClient.execute(request, followRedirects);
+					}
+
+					@Override
+					public void close() throws IOException {
+						if (actualClient != null) {
+							actualClient.close();
+						}
 					}
 				};
 				return client;
