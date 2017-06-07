@@ -10,6 +10,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
@@ -47,7 +48,11 @@ public class GoogleSearch {
 //		driver = new FirefoxDriver();
 
 		System.setProperty("webdriver.chrome.driver", properties.getProperty("webdriver.chrome.driver"));
-		driver = new ChromeDriver();
+		ChromeOptions options = new ChromeOptions();
+//		options.setBinary(properties.getProperty("webdriver.chrome.driver"));
+//		options.addArguments("start-maximized");
+		options.addArguments("headless");
+		driver = new ChromeDriver(options);
 		logger.info("WebDriver: " + driver.toString());
 	}
 

@@ -29,7 +29,7 @@ import org.testng.annotations.Test;
 
 import com.google.common.collect.ImmutableMap;
 
-public class GoogleSearch {
+public class UITest {
 
 	private RemoteWebDriver driver = null;
 	private static Logger logger = Logger.getAnonymousLogger();;
@@ -86,6 +86,32 @@ public class GoogleSearch {
 		Assert.assertEquals(driver.getTitle(), searchQuery + " - Google Search");
 	}
 
+	@Test
+	public void testDevInternal() {
+		driver.get("https://devinternal.intuit.com/index.html");
+		logger.info("title of page is: " + driver.getTitle());
+		String searchQuery = "TEP";
+		logger.info("Search for '" + searchQuery + "'");
+		WebElement searchBox = getElementByXPath(driver, "//*[@id=\"headerSearchBox\"]");
+		searchBox.sendKeys(searchQuery);
+		WebElement searchButton = getElementByXPath(driver, "//*[@id=\"headerSearchBtn\"]");
+		searchButton.click();
+		// Wait for the results to come up
+		WebElement results = getElementByXPath(driver, "//*[@id=\"keyword\"]/b");
+		Assert.assertTrue(results.getText().contains(searchQuery));
+		WebElement learn = getElementByXPath(driver, "//*[@id=\"TestExecution Platform_learn\"]");
+		learn.click();
+		//wait for page load
+		WebElement mt = getElementByXPath(driver, "//*[@id=\"contentIframe\"]", 20);
+		Assert.assertTrue(mt.isDisplayed());
+		WebElement perfBtn = getElementByXPath(driver, "//*[@id=\"perfBtn\"]");
+		Assert.assertEquals(perfBtn.getText(), "PERFORMANCE");
+		perfBtn.click();
+		WebElement perfPage = getElementByXPath(driver, "//*[@id=\"perfPage\"]");
+		Assert.assertTrue(perfPage.isDisplayed());
+	}
+
+	
 	// @Test
 	public void testSauceGuineaPig() {
 		driver.get("https://saucelabs.com/test/guinea-pig");
