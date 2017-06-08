@@ -48,7 +48,7 @@ public class GoogleSearch {
 //		driver = new FirefoxDriver();
 
 		//System.setProperty("webdriver.chrome.driver", "/usr/bin/chromedriver");
-		System.setProperty("webdriver.chrome.driver", "/usr/local/bin/chromedriver");		
+		//System.setProperty("webdriver.chrome.driver", "/usr/local/bin/chromedriver");		
 		ChromeOptions options = new ChromeOptions();
 		options.setBinary("/usr/local/bin/chromedriver");
 
