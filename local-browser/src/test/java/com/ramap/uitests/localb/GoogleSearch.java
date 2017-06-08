@@ -47,7 +47,7 @@ public class GoogleSearch {
 //		System.setProperty("webdriver.firefox.bin", properties.getProperty("webdriver.firefox.bin"));
 //		driver = new FirefoxDriver();
 
-		System.setProperty("webdriver.chrome.driver", "/usr/local/bin/chromedriver");
+		//System.setProperty("webdriver.chrome.driver", "/usr/local/bin/chromedriver");
 		ChromeOptions options = new ChromeOptions();
 //		options.setBinary(properties.getProperty("webdriver.chrome.driver"));
 //		options.addArguments("start-maximized");
