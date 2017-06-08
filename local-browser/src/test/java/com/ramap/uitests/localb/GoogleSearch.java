@@ -40,14 +40,14 @@ public class GoogleSearch {
 	@BeforeMethod
 	public void init() throws FileNotFoundException, IOException {
 		Properties properties = new Properties();
-		String homeDir = System.getProperty("user.home");
-		properties.load(new FileInputStream(homeDir + "/uitests.properties"));
+		//String homeDir = System.getProperty("user.home");
+		//properties.load(new FileInputStream(homeDir + "/uitests.properties"));
 		
 //		System.setProperty("webdriver.firefox.marionette", properties.getProperty("webdriver.firefox.marionette"));
 //		System.setProperty("webdriver.firefox.bin", properties.getProperty("webdriver.firefox.bin"));
 //		driver = new FirefoxDriver();
 
-		System.setProperty("webdriver.chrome.driver", properties.getProperty("webdriver.chrome.driver"));
+		System.setProperty("webdriver.chrome.driver", "/usr/local/bin/chromedriver");
 		ChromeOptions options = new ChromeOptions();
 //		options.setBinary(properties.getProperty("webdriver.chrome.driver"));
 //		options.addArguments("start-maximized");
