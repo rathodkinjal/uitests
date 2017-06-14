@@ -57,7 +57,7 @@ public class GoogleSearch {
 		logger.info("SauceLabs Playback URL: https://saucelabs.com/beta/tests/" + driver.getSessionId());
 	}
 
-	@Test
+	//@Test
 	public void testGoogle() {
 		driver.get("https://www.google.com/");
 		logger.info("title of page is: " + driver.getTitle());
