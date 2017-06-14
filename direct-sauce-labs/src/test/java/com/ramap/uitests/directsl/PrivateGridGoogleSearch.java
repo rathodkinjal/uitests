@@ -106,3 +106,4 @@ public class PrivateGridGoogleSearch {
 	private WebElement getElementByXPath(WebDriver driver, String path, int timeout) {
 		return (new WebDriverWait(driver, timeout)).until(ExpectedConditions.presenceOfElementLocated(By.xpath(path)));
 	}
+}
